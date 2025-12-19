@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,6 +37,7 @@
         "price": {
           "type": "price",
           "settings": {
+            "adapt_custom_price_format": false,
             "show_tax_and_shipping": false,
             "text_size_price": 70
           }
@@ -45,6 +55,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
+            "max_swatch": 20,
             "show_variant_option": true,
             "enable_color_swatches": true,
             "swatch_size": "small"
@@ -110,8 +121,8 @@
           "settings": {
             "show_button_style": "secondary",
             "show_dynamic_checkout": true,
-            "show_add_to_cart": true,
             "show_atc_quantity": true,
+            "show_add_to_cart": true,
             "show_price": false,
             "hide_sale_price": true,
             "show_gift_card_recipient": true,
@@ -170,6 +181,7 @@
             "another_icon": "",
             "custom_icon": "",
             "heading": "Description",
+            "custom_description": "",
             "number_of_lines_shown": "none",
             "read_more_label": "Read more",
             "see_less_label": "See less"
@@ -266,7 +278,7 @@
         "link_vendor": false,
         "make_content_center": false,
         "desktop_layout": "left",
-        "desktop_media_layout": "stacked",
+        "desktop_media_layout": "thumbnail_slider",
         "show_arrow_button": true,
         "mobile_media_size": "75%",
         "show_thumnail_mobile": false,
@@ -649,6 +661,10 @@
         "heading_color_dark": "rgba(0,0,0,0)",
         "heading_highlight_color_dark": "rgba(0,0,0,0)",
         "text_color_dark": "rgba(0,0,0,0)",
+        "swiper_on_mobile": false,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_slides_speed": 5,
         "max_columns": 3,
         "spacing": 30,
         "height_desktop": 300,
@@ -659,8 +675,6 @@
         "edge_style": "adapt",
         "padding_top": 32,
         "padding_bottom": 32,
-        "swiper_on_mobile": false,
-        "enable_arrow_mobile": false,
         "min_columns_mobile": "1",
         "spacing_mobile": 16,
         "height_mobile": 250,
@@ -913,6 +927,10 @@
         "heading_color_dark": "rgba(0,0,0,0)",
         "heading_highlight_color_dark": "rgba(0,0,0,0)",
         "text_color_dark": "rgba(0,0,0,0)",
+        "swiper_on_mobile": false,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_slides_speed": 5,
         "max_columns": 5,
         "spacing": 30,
         "height_desktop": 300,
@@ -923,8 +941,6 @@
         "edge_style": "adapt",
         "padding_top": 64,
         "padding_bottom": 32,
-        "swiper_on_mobile": false,
-        "enable_arrow_mobile": false,
         "min_columns_mobile": "1",
         "spacing_mobile": 20,
         "height_mobile": 250,
