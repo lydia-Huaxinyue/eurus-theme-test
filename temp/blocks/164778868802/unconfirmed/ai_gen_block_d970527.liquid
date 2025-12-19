@@ -1,6 +1,1085 @@
+{% doc %}
+  @prompt
+    A magazine-style editorial layout
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-layout-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-editorial-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-editorial-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+    align-items: stretch;
+  }
+
+  .ai-editorial-item-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-editorial-item-{{ ai_gen_id }}--large {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .ai-editorial-item-{{ ai_gen_id }}--medium {
+    grid-column: span 4;
+  }
+
+  .ai-editorial-item-{{ ai_gen_id }}--small {
+    grid-column: span 4;
+  }
+
+  .ai-editorial-item-{{ ai_gen_id }}--full {
+    grid-column: span 12;
+  }
+
+  .ai-editorial-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: {{ block.settings.min_height }}px;
+    overflow: hidden;
+  }
+
+  .ai-editorial-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-editorial-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    min-height: {{ block.settings.min_height }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-editorial-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-editorial-content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: {{ block.settings.content_padding }}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: {{ block.settings.content_vertical_alignment }};
+    align-items: {{ block.settings.content_horizontal_alignment }};
+    text-align: {% if block.settings.content_horizontal_alignment == 'flex-start' %}left{% elsif block.settings.content_horizontal_alignment == 'flex-end' %}right{% else %}center{% endif %};
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, {{ block.settings.overlay_opacity }}) 100%
+    );
+  }
+
+  .ai-editorial-category-{{ ai_gen_id }} {
+    font-size: {{ block.settings.category_size }}px;
+    color: {{ block.settings.text_color }};
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .ai-editorial-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 16px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .ai-editorial-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  .ai-editorial-link-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.button_size }}px;
+    font-weight: 600;
+    border-radius: {{ block.settings.button_radius }}px;
+    transition: all 0.3s ease;
+  }
+
+  .ai-editorial-link-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+  }
+
+  .ai-editorial-text-only-{{ ai_gen_id }} {
+    background-color: {{ block.settings.text_block_background }};
+    padding: {{ block.settings.content_padding }}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: {% if block.settings.text_alignment == 'left' %}flex-start{% elsif block.settings.text_alignment == 'right' %}flex-end{% else %}center{% endif %};
+    text-align: {{ block.settings.text_alignment }};
+    min-height: {{ block.settings.min_height }}px;
+  }
+
+  .ai-editorial-text-only-{{ ai_gen_id }} .ai-editorial-category-{{ ai_gen_id }},
+  .ai-editorial-text-only-{{ ai_gen_id }} .ai-editorial-title-{{ ai_gen_id }},
+  .ai-editorial-text-only-{{ ai_gen_id }} .ai-editorial-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_block_color }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-editorial-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(6, 1fr);
+      gap: {{ block.settings.grid_gap_mobile }}px;
+    }
+
+    .ai-editorial-item-{{ ai_gen_id }}--large {
+      grid-column: span 6;
+      grid-row: span 1;
+    }
+
+    .ai-editorial-item-{{ ai_gen_id }}--medium,
+    .ai-editorial-item-{{ ai_gen_id }}--small {
+      grid-column: span 6;
+    }
+
+    .ai-editorial-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.7);
+    }
+
+    .ai-editorial-category-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.category_size }}px * 0.8);
+    }
+
+    .ai-editorial-description-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.description_size }}px * 0.9);
+    }
+
+    .ai-editorial-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding_mobile }}px;
+    }
+
+    .ai-editorial-text-only-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding_mobile }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-item-{{ ai_gen_id }}--large,
+    .ai-editorial-item-{{ ai_gen_id }}--medium,
+    .ai-editorial-item-{{ ai_gen_id }}--small {
+      grid-column: span 6;
+    }
+  }
+{% endstyle %}
+
+<editorial-layout-{{ ai_gen_id }} class="ai-editorial-layout-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-editorial-container-{{ ai_gen_id }}">
+    <div class="ai-editorial-grid-{{ ai_gen_id }}">
+      {% if block.settings.item_1_enabled %}
+        <div class="ai-editorial-item-{{ ai_gen_id }} ai-editorial-item-{{ ai_gen_id }}--{{ block.settings.item_1_size }}">
+          {% if block.settings.item_1_type == 'image' %}
+            <div class="ai-editorial-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.item_1_image %}
+                <img
+                  src="{{ block.settings.item_1_image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.item_1_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.item_1_image.width }}"
+                  height="{{ block.settings.item_1_image.height }}"
+                  class="ai-editorial-image-{{ ai_gen_id }}"
+                >
+              {% else %}
+                <div class="ai-editorial-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+              {% if block.settings.item_1_category != blank or block.settings.item_1_title != blank or block.settings.item_1_description != blank or block.settings.item_1_link != blank %}
+                <div class="ai-editorial-content-{{ ai_gen_id }}">
+                  {% if block.settings.item_1_category != blank %}
+                    <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_1_category }}</div>
+                  {% endif %}
+                  {% if block.settings.item_1_title != blank %}
+                    <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_1_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.item_1_description != blank %}
+                    <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_1_description }}</div>
+                  {% endif %}
+                  {% if block.settings.item_1_link != blank and block.settings.item_1_button_text != blank %}
+                    <a href="{{ block.settings.item_1_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                      {{ block.settings.item_1_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            <div class="ai-editorial-text-only-{{ ai_gen_id }}">
+              {% if block.settings.item_1_category != blank %}
+                <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_1_category }}</div>
+              {% endif %}
+              {% if block.settings.item_1_title != blank %}
+                <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_1_title }}</h3>
+              {% endif %}
+              {% if block.settings.item_1_description != blank %}
+                <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_1_description }}</div>
+              {% endif %}
+              {% if block.settings.item_1_link != blank and block.settings.item_1_button_text != blank %}
+                <a href="{{ block.settings.item_1_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                  {{ block.settings.item_1_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_2_enabled %}
+        <div class="ai-editorial-item-{{ ai_gen_id }} ai-editorial-item-{{ ai_gen_id }}--{{ block.settings.item_2_size }}">
+          {% if block.settings.item_2_type == 'image' %}
+            <div class="ai-editorial-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.item_2_image %}
+                <img
+                  src="{{ block.settings.item_2_image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.item_2_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.item_2_image.width }}"
+                  height="{{ block.settings.item_2_image.height }}"
+                  class="ai-editorial-image-{{ ai_gen_id }}"
+                >
+              {% else %}
+                <div class="ai-editorial-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+              {% if block.settings.item_2_category != blank or block.settings.item_2_title != blank or block.settings.item_2_description != blank or block.settings.item_2_link != blank %}
+                <div class="ai-editorial-content-{{ ai_gen_id }}">
+                  {% if block.settings.item_2_category != blank %}
+                    <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_2_category }}</div>
+                  {% endif %}
+                  {% if block.settings.item_2_title != blank %}
+                    <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_2_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.item_2_description != blank %}
+                    <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_2_description }}</div>
+                  {% endif %}
+                  {% if block.settings.item_2_link != blank and block.settings.item_2_button_text != blank %}
+                    <a href="{{ block.settings.item_2_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                      {{ block.settings.item_2_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            <div class="ai-editorial-text-only-{{ ai_gen_id }}">
+              {% if block.settings.item_2_category != blank %}
+                <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_2_category }}</div>
+              {% endif %}
+              {% if block.settings.item_2_title != blank %}
+                <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_2_title }}</h3>
+              {% endif %}
+              {% if block.settings.item_2_description != blank %}
+                <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_2_description }}</div>
+              {% endif %}
+              {% if block.settings.item_2_link != blank and block.settings.item_2_button_text != blank %}
+                <a href="{{ block.settings.item_2_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                  {{ block.settings.item_2_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_3_enabled %}
+        <div class="ai-editorial-item-{{ ai_gen_id }} ai-editorial-item-{{ ai_gen_id }}--{{ block.settings.item_3_size }}">
+          {% if block.settings.item_3_type == 'image' %}
+            <div class="ai-editorial-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.item_3_image %}
+                <img
+                  src="{{ block.settings.item_3_image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.item_3_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.item_3_image.width }}"
+                  height="{{ block.settings.item_3_image.height }}"
+                  class="ai-editorial-image-{{ ai_gen_id }}"
+                >
+              {% else %}
+                <div class="ai-editorial-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+              {% if block.settings.item_3_category != blank or block.settings.item_3_title != blank or block.settings.item_3_description != blank or block.settings.item_3_link != blank %}
+                <div class="ai-editorial-content-{{ ai_gen_id }}">
+                  {% if block.settings.item_3_category != blank %}
+                    <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_3_category }}</div>
+                  {% endif %}
+                  {% if block.settings.item_3_title != blank %}
+                    <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_3_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.item_3_description != blank %}
+                    <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_3_description }}</div>
+                  {% endif %}
+                  {% if block.settings.item_3_link != blank and block.settings.item_3_button_text != blank %}
+                    <a href="{{ block.settings.item_3_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                      {{ block.settings.item_3_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            <div class="ai-editorial-text-only-{{ ai_gen_id }}">
+              {% if block.settings.item_3_category != blank %}
+                <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_3_category }}</div>
+              {% endif %}
+              {% if block.settings.item_3_title != blank %}
+                <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_3_title }}</h3>
+              {% endif %}
+              {% if block.settings.item_3_description != blank %}
+                <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_3_description }}</div>
+              {% endif %}
+              {% if block.settings.item_3_link != blank and block.settings.item_3_button_text != blank %}
+                <a href="{{ block.settings.item_3_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                  {{ block.settings.item_3_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_4_enabled %}
+        <div class="ai-editorial-item-{{ ai_gen_id }} ai-editorial-item-{{ ai_gen_id }}--{{ block.settings.item_4_size }}">
+          {% if block.settings.item_4_type == 'image' %}
+            <div class="ai-editorial-image-wrapper-{{ ai_gen_id }}">
+              {% if block.settings.item_4_image %}
+                <img
+                  src="{{ block.settings.item_4_image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.item_4_image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.item_4_image.width }}"
+                  height="{{ block.settings.item_4_image.height }}"
+                  class="ai-editorial-image-{{ ai_gen_id }}"
+                >
+              {% else %}
+                <div class="ai-editorial-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+              {% if block.settings.item_4_category != blank or block.settings.item_4_title != blank or block.settings.item_4_description != blank or block.settings.item_4_link != blank %}
+                <div class="ai-editorial-content-{{ ai_gen_id }}">
+                  {% if block.settings.item_4_category != blank %}
+                    <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_4_category }}</div>
+                  {% endif %}
+                  {% if block.settings.item_4_title != blank %}
+                    <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_4_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.item_4_description != blank %}
+                    <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_4_description }}</div>
+                  {% endif %}
+                  {% if block.settings.item_4_link != blank and block.settings.item_4_button_text != blank %}
+                    <a href="{{ block.settings.item_4_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                      {{ block.settings.item_4_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% else %}
+            <div class="ai-editorial-text-only-{{ ai_gen_id }}">
+              {% if block.settings.item_4_category != blank %}
+                <div class="ai-editorial-category-{{ ai_gen_id }}">{{ block.settings.item_4_category }}</div>
+              {% endif %}
+              {% if block.settings.item_4_title != blank %}
+                <h3 class="ai-editorial-title-{{ ai_gen_id }}">{{ block.settings.item_4_title }}</h3>
+              {% endif %}
+              {% if block.settings.item_4_description != blank %}
+                <div class="ai-editorial-description-{{ ai_gen_id }}">{{ block.settings.item_4_description }}</div>
+              {% endif %}
+              {% if block.settings.item_4_link != blank and block.settings.item_4_button_text != blank %}
+                <a href="{{ block.settings.item_4_link }}" class="ai-editorial-link-{{ ai_gen_id }}">
+                  {{ block.settings.item_4_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</editorial-layout-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class EditorialLayout{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.adjustLayout();
+        window.addEventListener('resize', () => this.adjustLayout());
+      }
+
+      adjustLayout() {
+        const items = this.querySelectorAll('.ai-editorial-item-{{ ai_gen_id }}');
+        items.forEach(item => {
+          const imageWrapper = item.querySelector('.ai-editorial-image-wrapper-{{ ai_gen_id }}');
+          if (imageWrapper) {
+            const img = imageWrapper.querySelector('img');
+            if (img && img.complete) {
+              this.setMinHeight(imageWrapper, img);
+            } else if (img) {
+              img.addEventListener('load', () => this.setMinHeight(imageWrapper, img));
+            }
+          }
+        });
+      }
+
+      setMinHeight(wrapper, img) {
+        if (window.innerWidth > 749) {
+          const aspectRatio = img.naturalHeight / img.naturalWidth;
+          const minHeight = wrapper.offsetWidth * aspectRatio;
+          wrapper.style.minHeight = minHeight + 'px';
+        }
+      }
+    }
+
+    customElements.define('editorial-layout-{{ ai_gen_id }}', EditorialLayout{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Magazine editorial layout",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Grid gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "grid_gap_mobile",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "label": "Grid gap on mobile",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 400
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Content style"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_padding_mobile",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Content padding on mobile",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "content_vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "select",
+      "id": "content_horizontal_alignment",
+      "label": "Horizontal alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Overlay opacity",
+      "default": 0.5
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "category_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Category size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Text block style"
+    },
+    {
+      "type": "color",
+      "id": "text_block_background",
+      "label": "Background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_block_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Hover background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Button radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_1_enabled",
+      "label": "Enable item 1",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "item_1_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "text",
+          "label": "Text only"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "select",
+      "id": "item_1_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "item_1_category",
+      "label": "Category",
+      "default": "Fashion"
+    },
+    {
+      "type": "text",
+      "id": "item_1_title",
+      "label": "Title",
+      "default": "Spring Collection 2024"
+    },
+    {
+      "type": "textarea",
+      "id": "item_1_description",
+      "label": "Description",
+      "default": "Discover the latest trends in sustainable fashion"
+    },
+    {
+      "type": "url",
+      "id": "item_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "item_1_button_text",
+      "label": "Button text",
+      "default": "Explore"
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_2_enabled",
+      "label": "Enable item 2",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "item_2_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "text",
+          "label": "Text only"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "select",
+      "id": "item_2_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "item_2_category",
+      "label": "Category",
+      "default": "Lifestyle"
+    },
+    {
+      "type": "text",
+      "id": "item_2_title",
+      "label": "Title",
+      "default": "Urban Essentials"
+    },
+    {
+      "type": "textarea",
+      "id": "item_2_description",
+      "label": "Description",
+      "default": "Minimalist designs for modern living"
+    },
+    {
+      "type": "url",
+      "id": "item_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "item_2_button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_3_enabled",
+      "label": "Enable item 3",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "item_3_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "text",
+          "label": "Text only"
+        }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "select",
+      "id": "item_3_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "item_3_category",
+      "label": "Category",
+      "default": "Editorial"
+    },
+    {
+      "type": "text",
+      "id": "item_3_title",
+      "label": "Title",
+      "default": "The Art of Simplicity"
+    },
+    {
+      "type": "textarea",
+      "id": "item_3_description",
+      "label": "Description",
+      "default": "Less is more in contemporary design"
+    },
+    {
+      "type": "url",
+      "id": "item_3_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "item_3_button_text",
+      "label": "Button text",
+      "default": "Read More"
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_4_enabled",
+      "label": "Enable item 4",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "item_4_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "text",
+          "label": "Text only"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "select",
+      "id": "item_4_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "item_4_category",
+      "label": "Category",
+      "default": "Accessories"
+    },
+    {
+      "type": "text",
+      "id": "item_4_title",
+      "label": "Title",
+      "default": "Timeless Pieces"
+    },
+    {
+      "type": "textarea",
+      "id": "item_4_description",
+      "label": "Description",
+      "default": "Curated accessories for every occasion"
+    },
+    {
+      "type": "url",
+      "id": "item_4_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "item_4_button_text",
+      "label": "Button text",
+      "default": "View All"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Magazine editorial layout"
+    }
+  ]
+}
 {% endschema %}
