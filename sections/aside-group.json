@@ -32,11 +32,11 @@
             "position": "top-left",
             "horizontal_position": 95,
             "vertical_position": 5,
-            "background_color": "#980000",
-            "text_color": "#ffffff",
+            "background_color": "#ffffff",
+            "text_color": "#e41717",
             "border_color": "rgba(0,0,0,0)",
-            "background_color_dark": "#980000",
-            "text_color_dark": "#ffffff",
+            "background_color_dark": "#1f1f1f",
+            "text_color_dark": "#f11e1e",
             "border_color_dark": "rgba(0,0,0,0)"
           }
         },

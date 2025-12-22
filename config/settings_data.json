@@ -115,7 +115,7 @@
     "card_button_preorder": "Pre-order now",
     "enable_price_range": true,
     "gift_wrapping_product": "",
-    "products_color_swatches_enable_on_collection_page": true,
+    "products_color_swatches_enable_on_collection_page": false,
     "swatches_type": "both_text_and_color",
     "replace_color_with_variant_images": false,
     "color_option_values": "Charcoal:#B4AAA9",
