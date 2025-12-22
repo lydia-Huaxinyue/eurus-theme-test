@@ -11,77 +11,6 @@
   "name": "t:sections.group.aside.name",
   "type": "aside",
   "sections": {
-    "1766111202297f8cc0": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_d970527_4XLPCy": {
-          "type": "ai_gen_block_d970527",
-          "settings": {
-            "max_width": 1400,
-            "section_padding": 50,
-            "grid_gap": 20,
-            "grid_gap_mobile": 10,
-            "min_height": 400,
-            "background_color": "#ffffff",
-            "content_padding": 40,
-            "content_padding_mobile": 20,
-            "content_vertical_alignment": "flex-end",
-            "content_horizontal_alignment": "flex-start",
-            "overlay_opacity": 0.5,
-            "text_color": "#ffffff",
-            "category_size": 12,
-            "title_size": 36,
-            "description_size": 16,
-            "text_block_background": "#f4f4f4",
-            "text_block_color": "#000000",
-            "text_alignment": "left",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_hover_background": "#000000",
-            "button_hover_text_color": "#ffffff",
-            "button_size": 14,
-            "button_radius": 0,
-            "item_1_enabled": true,
-            "item_1_type": "image",
-            "item_1_size": "large",
-            "item_1_category": "Fashion",
-            "item_1_title": "Spring Collection 2024",
-            "item_1_description": "Discover the latest trends in sustainable fashion",
-            "item_1_link": "",
-            "item_1_button_text": "Explore",
-            "item_2_enabled": true,
-            "item_2_type": "image",
-            "item_2_size": "medium",
-            "item_2_category": "Lifestyle",
-            "item_2_title": "Urban Essentials",
-            "item_2_description": "Minimalist designs for modern living",
-            "item_2_link": "",
-            "item_2_button_text": "Shop Now",
-            "item_3_enabled": true,
-            "item_3_type": "text",
-            "item_3_size": "small",
-            "item_3_category": "Editorial",
-            "item_3_title": "The Art of Simplicity",
-            "item_3_description": "Less is more in contemporary design",
-            "item_3_link": "",
-            "item_3_button_text": "Read More",
-            "item_4_enabled": true,
-            "item_4_type": "image",
-            "item_4_size": "small",
-            "item_4_category": "Accessories",
-            "item_4_title": "Timeless Pieces",
-            "item_4_description": "Curated accessories for every occasion",
-            "item_4_link": "",
-            "item_4_button_text": "View All"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_d970527_4XLPCy"
-      ],
-      "settings": {}
-    },
     "product-labels-and-badges": {
       "type": "product-labels-and-badges",
       "blocks": {
@@ -476,7 +405,6 @@
     }
   },
   "order": [
-    "1766111202297f8cc0",
     "product-labels-and-badges",
     "quick-view",
     "popup-promotion",
