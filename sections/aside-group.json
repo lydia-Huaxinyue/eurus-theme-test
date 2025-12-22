@@ -278,46 +278,36 @@
           "type": "heading",
           "settings": {
             "subheading": "",
-            "heading": "Write your store's popup content",
+            "heading": "GET Special Discount FOR YOUR NEXT ORDER!",
             "highlight_type": "underline",
             "heading_color": "rgba(0,0,0,0)",
             "heading_color_dark": "rgba(0,0,0,0)"
           }
         },
-        "text_4878ky": {
+        "text_HnEVbg": {
           "type": "text",
           "settings": {
-            "text": "<p>Simply enter code coupon_code at checkout</p>",
-            "coupon_code": "SIMPLY10",
+            "text": "<p>Yes, even on sale items.</p>",
+            "coupon_code": "",
             "coupon_color": "rgba(0,0,0,0)",
             "coupon_color_dark": "rgba(0,0,0,0)"
           }
         },
-        "162d3675-54a4-4667-b673-3c708b186df8": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn more",
-            "button_link": "",
-            "open_new_window": true,
-            "button_color": "rgba(0,0,0,0)",
-            "button_text_color": "rgba(0,0,0,0)",
-            "button_color_hover": "rgba(0,0,0,0)",
-            "button_text_color_hover": "rgba(0,0,0,0)",
-            "button_color_dark": "rgba(0,0,0,0)",
-            "button_text_color_dark": "rgba(0,0,0,0)",
-            "button_color_hover_dark": "rgba(0,0,0,0)",
-            "button_text_color_hover_dark": "rgba(0,0,0,0)"
-          }
+        "email_form_BJ8VqD": {
+          "type": "email_form",
+          "settings": {}
         }
       },
       "block_order": [
         "sections--18371362324774__2eca4af3-5277-406b-a4de-c52946c34b5f-1680002178ae4a2c07-0",
-        "text_4878ky",
-        "162d3675-54a4-4667-b673-3c708b186df8"
+        "text_HnEVbg",
+        "email_form_BJ8VqD"
       ],
       "custom_css": [],
+      "name": "Newsletter",
       "settings": {
-        "popup_position": "bottom-left",
+        "popup_position": "center",
+        "image": "shopify://shop_images/20251216-141232.jpg",
         "content_position": "right",
         "content_alignment": "left",
         "background_color_light": "rgba(0,0,0,0)",
