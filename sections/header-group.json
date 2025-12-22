@@ -648,7 +648,7 @@
         "mobile-navigation-3"
       ],
       "settings": {
-        "menu": "main-menu",
+        "menu": "side-menu",
         "menu_font_size": "medium",
         "show_language_selector": true,
         "show_currency_selector": true,
