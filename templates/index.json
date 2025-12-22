@@ -16,9 +16,10 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/kv_105b58bd-36b8-4aa3-bb25-80c25aec1d08.jpg",
+            "image_mobile": "shopify://shop_images/mb_3d47f16e-fa7d-45de-b7a5-558db7ee2a9f.jpg",
             "image_link": "",
             "open_new_window_image": false,
-            "overlay_opacity": 20,
+            "overlay_opacity": 0,
             "video_url": "",
             "video_alt_text": "",
             "show_sound_control": false,
