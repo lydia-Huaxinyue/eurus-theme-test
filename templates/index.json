@@ -164,143 +164,6 @@
         "padding_bottom_mobile": 48
       }
     },
-    "scrolling_banner_nxzkfx": {
-      "type": "scrolling-banner",
-      "blocks": {
-        "image_XCaWKG": {
-          "type": "image",
-          "settings": {
-            "height_image": 55,
-            "image_style": "square",
-            "image_ratio": "aspect-square",
-            "image_link": "",
-            "open_new_window": false,
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "heading_NA976T": {
-          "type": "heading",
-          "settings": {
-            "text": "Talk about your brand",
-            "highlight_type": "underline",
-            "text_size": 70,
-            "text_outline": "rgba(0,0,0,0)",
-            "text_fill": "rgba(0,0,0,0)",
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "image_PrkwFP": {
-          "type": "image",
-          "settings": {
-            "height_image": 55,
-            "image_style": "square",
-            "image_ratio": "aspect-square",
-            "image_link": "",
-            "open_new_window": false,
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "heading_C3RdTU": {
-          "type": "heading",
-          "settings": {
-            "text": "Talk about your brand",
-            "highlight_type": "underline",
-            "text_size": 70,
-            "text_outline": "rgba(0,0,0,0)",
-            "text_fill": "rgba(0,0,0,0)",
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "image_AeUtkW": {
-          "type": "image",
-          "settings": {
-            "height_image": 55,
-            "image_style": "square",
-            "image_ratio": "aspect-square",
-            "image_link": "",
-            "open_new_window": false,
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "heading_3TEENX": {
-          "type": "heading",
-          "settings": {
-            "text": "Talk about your brand",
-            "highlight_type": "underline",
-            "text_size": 70,
-            "text_outline": "rgba(0,0,0,0)",
-            "text_fill": "rgba(0,0,0,0)",
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        },
-        "image_JQNAdC": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "height_image": 55,
-            "image_style": "square",
-            "image_ratio": "aspect-square",
-            "image_link": "",
-            "open_new_window": false,
-            "spacing_left": 0,
-            "spacing_right": 0,
-            "spacing_left_mobile": 0,
-            "spacing_right_mobile": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_XCaWKG",
-        "heading_NA976T",
-        "image_PrkwFP",
-        "heading_C3RdTU",
-        "image_AeUtkW",
-        "heading_3TEENX",
-        "image_JQNAdC"
-      ],
-      "settings": {
-        "show_border": true,
-        "speed": 30,
-        "direction": "right",
-        "pause_hover": true,
-        "enable_rotating_effect": false,
-        "overlay_opacity": 0,
-        "bg_light": "rgba(0,0,0,0)",
-        "color_text_light": "rgba(0,0,0,0)",
-        "color_text_light_2": "rgba(0,0,0,0)",
-        "color_heading_highlight_light": "rgba(0,0,0,0)",
-        "bg_dark": "rgba(0,0,0,0)",
-        "color_text_dark": "rgba(0,0,0,0)",
-        "color_text_dark_2": "rgba(0,0,0,0)",
-        "color_heading_highlight_dark": "rgba(0,0,0,0)",
-        "space_block": 60,
-        "desktop_height": "750px",
-        "padding_top": 16,
-        "padding_bottom": 16,
-        "space_block_mobile": 40,
-        "mobile_height": "500px",
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
-      }
-    },
     "featured_collection_PGPy6n": {
       "type": "featured-collection",
       "blocks": {
@@ -398,8 +261,8 @@
         "show_section_divider": false,
         "padding_top": 100,
         "padding_bottom": 100,
-        "columns_mobile": "1",
-        "spacing_mobile": 16,
+        "columns_mobile": "2",
+        "spacing_mobile": 0,
         "full_width_mobile": false,
         "show_section_divider_mobile": false,
         "padding_top_mobile": 48,
@@ -518,6 +381,85 @@
         "show_section_divider_mobile": false,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 20
+      }
+    },
+    "scrolling_banner_nxzkfx": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "image_XCaWKG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/16.12.25EnRoute-7.jpg",
+            "height_image": 150,
+            "image_style": "square",
+            "image_ratio": "aspect-square",
+            "image_link": "",
+            "open_new_window": false,
+            "spacing_left": 0,
+            "spacing_right": 0,
+            "spacing_left_mobile": 0,
+            "spacing_right_mobile": 0
+          }
+        },
+        "image_PrkwFP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/251215-SY-1-Heart_club_bracelet.jpg",
+            "height_image": 150,
+            "image_style": "square",
+            "image_ratio": "aspect-square",
+            "image_link": "",
+            "open_new_window": false,
+            "spacing_left": 0,
+            "spacing_right": 0,
+            "spacing_left_mobile": 0,
+            "spacing_right_mobile": 0
+          }
+        },
+        "image_AeUtkW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1280X1280_1_a863d8bb-4273-4dea-ad5c-11c3b695f37a.jpg",
+            "height_image": 150,
+            "image_style": "square",
+            "image_ratio": "aspect-square",
+            "image_link": "",
+            "open_new_window": false,
+            "spacing_left": 0,
+            "spacing_right": 0,
+            "spacing_left_mobile": 0,
+            "spacing_right_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_XCaWKG",
+        "image_PrkwFP",
+        "image_AeUtkW"
+      ],
+      "settings": {
+        "show_border": true,
+        "speed": 30,
+        "direction": "right",
+        "pause_hover": true,
+        "enable_rotating_effect": false,
+        "overlay_opacity": 0,
+        "bg_light": "#ffffff",
+        "color_text_light": "rgba(0,0,0,0)",
+        "color_text_light_2": "rgba(0,0,0,0)",
+        "color_heading_highlight_light": "rgba(0,0,0,0)",
+        "bg_dark": "rgba(0,0,0,0)",
+        "color_text_dark": "rgba(0,0,0,0)",
+        "color_text_dark_2": "rgba(0,0,0,0)",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "space_block": 10,
+        "desktop_height": "750px",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "space_block_mobile": 10,
+        "mobile_height": "500px",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     },
     "promotion_banner_76YRtr": {
@@ -2133,9 +2075,9 @@
   "order": [
     "slideshow_LHxqRU",
     "collection_list_ThFeJV",
-    "scrolling_banner_nxzkfx",
     "featured_collection_PGPy6n",
     "text_column_with_image_FqtgFK",
+    "scrolling_banner_nxzkfx",
     "promotion_banner_76YRtr",
     "promo_code_list_7c4i6t",
     "shop_the_look_rdmViy",
