@@ -113,6 +113,7 @@
     "preorder_show": "on_backordered",
     "applied_products_preorder": [],
     "card_button_preorder": "Pre-order now",
+    "highlighted_features_position": "below_title",
     "enable_price_range": true,
     "gift_wrapping_product": "",
     "products_color_swatches_enable_on_collection_page": false,
