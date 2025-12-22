@@ -325,7 +325,7 @@
         "default_style": "full",
         "enable_mobile": true,
         "default_style_mobile": "minimal",
-        "minimal_title": "Write your store's popup content",
+        "minimal_title": "Success subscribing",
         "minimal_subtitle": ""
       }
     },
