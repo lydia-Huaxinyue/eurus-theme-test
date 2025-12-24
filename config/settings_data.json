@@ -98,7 +98,7 @@
     "show_popup_overlay": true,
     "card_product_background_color_light": "rgba(0,0,0,0)",
     "product_image_ratio": "3/4",
-    "product_image_type": "slide_img",
+    "product_image_type": "hover_to_reveal_second_image",
     "transition_arrows": "#ffffff",
     "transition_arrows_dark": "#ffffff",
     "info_alignment_card_product": "center",
