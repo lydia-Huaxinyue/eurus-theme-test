@@ -183,7 +183,7 @@
     "preset": "Whiff",
     "enable_tab_attention": true,
     "disable_inspect": false,
-    "enable_country_blocker": true,
+    "enable_country_blocker": false,
     "country_list_function": "block",
     "country_list": "cn",
     "country_redirect_url": "https://www.google.com",
