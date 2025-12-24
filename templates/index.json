@@ -1121,6 +1121,7 @@
         "content_horizontal": 50,
         "content_vertical": 50,
         "content_alignment": "center",
+        "video": "shopify://files/videos/2-1 舞动.mp4",
         "show_sound_control": false,
         "video_url": "",
         "video_alt_text": "",
