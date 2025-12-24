@@ -860,37 +860,21 @@
         "look_nKLmnk": {
           "type": "look",
           "settings": {
-            "product": "",
-            "products": [],
-            "heading": "",
-            "text": "",
-            "content_alignment": "center",
-            "color_hotspot": "rgba(0,0,0,0)",
-            "hotspot_desktop_horizontal": 30,
-            "hotspot_desktop_vertical": 50,
-            "hotspot_mobile_horizontal": 27,
-            "hotspot_mobile_vertical": 47
-          }
-        },
-        "look_P6VK8C": {
-          "type": "look",
-          "settings": {
-            "product": "",
+            "product": "angels-calling-waist-chain-in-silver",
             "products": [],
             "heading": "",
             "text": "",
             "content_alignment": "center",
             "color_hotspot": "rgba(0,0,0,0)",
             "hotspot_desktop_horizontal": 53,
-            "hotspot_desktop_vertical": 27,
-            "hotspot_mobile_horizontal": 54,
-            "hotspot_mobile_vertical": 25
+            "hotspot_desktop_vertical": 50,
+            "hotspot_mobile_horizontal": 27,
+            "hotspot_mobile_vertical": 47
           }
         }
       },
       "block_order": [
-        "look_nKLmnk",
-        "look_P6VK8C"
+        "look_nKLmnk"
       ],
       "name": "t:sections.shop_the_look.name",
       "settings": {
@@ -900,6 +884,7 @@
         "heading_tag": "h2",
         "heading_alignment": "center",
         "subheading": "Example subheading",
+        "image_desktop": "shopify://shop_images/20251223-182411.jpg",
         "image_ratio": "square",
         "info_alignment": "center",
         "show_quickview": true,
