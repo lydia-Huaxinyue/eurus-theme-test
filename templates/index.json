@@ -12,6 +12,57 @@
     "slideshow_LHxqRU": {
       "type": "slideshow",
       "blocks": {
+        "slide_C8be6V": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kv2_d6e20f26-59d5-459a-9acb-3389c4070fa6.jpg",
+            "image_mobile": "shopify://shop_images/kv_48f4fc83-b48f-4f64-8e07-8ace69df1e30.jpg",
+            "image_link": "",
+            "open_new_window_image": false,
+            "overlay_opacity": 0,
+            "video_url": "",
+            "video_alt_text": "",
+            "show_sound_control": false,
+            "enable_video_autoplay": false,
+            "mobile_video_url": "",
+            "enable_bakground": false,
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "Slide title",
+            "highlight_type": "underline",
+            "heading_size": 170,
+            "heading_tag": "h2",
+            "text": "<p>Tell your brand's story through images</p>",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "open_new_window_button": false,
+            "show_button_style_1": "primary",
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "open_new_window_button_2": false,
+            "show_button_style_2": "primary",
+            "content_alignment": "middle-center",
+            "custom_horizontal": 50,
+            "custom_vertical": 50,
+            "alignment": "center",
+            "text_product": "Check out our products:",
+            "list_products": [],
+            "show_rating": false,
+            "open_new_window_product": false,
+            "content_background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_product_card_background": "rgba(0,0,0,0)",
+            "color_product_card_text": "rgba(0,0,0,0)"
+          }
+        },
         "slide_yFqbYQ": {
           "type": "slide",
           "settings": {
@@ -65,6 +116,7 @@
         }
       },
       "block_order": [
+        "slide_C8be6V",
         "slide_yFqbYQ"
       ],
       "settings": {
