@@ -182,6 +182,7 @@
     "selected_preset": "breeze",
     "preset": "Whiff",
     "enable_tab_attention": true,
+    "disable_inspect": false,
     "enable_country_blocker": true,
     "country_list_function": "block",
     "country_list": "cn",
