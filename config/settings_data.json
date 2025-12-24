@@ -111,7 +111,7 @@
     "low_stock_message_dark": "#e65656",
     "out_of_stock_message_dark": "#8e8581",
     "quick_add_picker_type": "button",
-    "default_select_available_variant": false,
+    "default_select_available_variant": true,
     "preorder_show": "on_backordered",
     "applied_products_preorder": [],
     "card_button_preorder": "Pre-order now",
